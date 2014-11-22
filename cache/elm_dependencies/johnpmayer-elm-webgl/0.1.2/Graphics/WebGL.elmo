@@ -1,0 +1,71 @@
+Elm.Graphics = Elm.Graphics || {};
+Elm.Graphics.WebGL = Elm.Graphics.WebGL || {};
+Elm.Graphics.WebGL.make = function (_elm) {
+   "use strict";
+   _elm.Graphics = _elm.Graphics || {};
+   _elm.Graphics.WebGL = _elm.Graphics.WebGL || {};
+   if (_elm.Graphics.WebGL.values)
+   return _elm.Graphics.WebGL.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Graphics.WebGL",
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Http = Elm.Http.make(_elm),
+   $Native$Graphics$WebGL = Elm.Native.Graphics.WebGL.make(_elm),
+   $Signal = Elm.Signal.make(_elm);
+   var webgl = $Native$Graphics$WebGL.webgl;
+   var entity = $Native$Graphics$WebGL.entity;
+   var Entity = {ctor: "Entity"};
+   var loadTexture = $Native$Graphics$WebGL.loadTex;
+   var Texture = {ctor: "Texture"};
+   var unsafeShader = $Native$Graphics$WebGL.unsafeCoerceGLSL;
+   var Shader = {ctor: "Shader"};
+   var zipTriangle = F3(function (f,
+   _v0,
+   _v1) {
+      return function () {
+         switch (_v1.ctor)
+         {case "_Tuple3":
+            return function () {
+                 switch (_v0.ctor)
+                 {case "_Tuple3":
+                    return {ctor: "_Tuple3"
+                           ,_0: A2(f,_v0._0,_v1._0)
+                           ,_1: A2(f,_v0._1,_v1._1)
+                           ,_2: A2(f,_v0._2,_v1._2)};}
+                 _E.Case($moduleName,
+                 "on line 50, column 37 to 59");
+              }();}
+         _E.Case($moduleName,
+         "on line 50, column 37 to 59");
+      }();
+   });
+   var mapTriangle = F2(function (f,
+   _v10) {
+      return function () {
+         switch (_v10.ctor)
+         {case "_Tuple3":
+            return {ctor: "_Tuple3"
+                   ,_0: f(_v10._0)
+                   ,_1: f(_v10._1)
+                   ,_2: f(_v10._2)};}
+         _E.Case($moduleName,
+         "on line 44, column 26 to 39");
+      }();
+   });
+   _elm.Graphics.WebGL.values = {_op: _op
+                                ,mapTriangle: mapTriangle
+                                ,zipTriangle: zipTriangle
+                                ,Shader: Shader
+                                ,unsafeShader: unsafeShader
+                                ,Texture: Texture
+                                ,loadTexture: loadTexture
+                                ,Entity: Entity
+                                ,entity: entity
+                                ,webgl: webgl};
+   return _elm.Graphics.WebGL.values;
+};

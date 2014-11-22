@@ -1,0 +1,77 @@
+Elm.Main = Elm.Main || {};
+Elm.Main.make = function (_elm) {
+   "use strict";
+   _elm.Main = _elm.Main || {};
+   if (_elm.Main.values)
+   return _elm.Main.values;
+   var _op = {},
+   _N = Elm.Native,
+   _U = _N.Utils.make(_elm),
+   _L = _N.List.make(_elm),
+   _A = _N.Array.make(_elm),
+   _E = _N.Error.make(_elm),
+   $moduleName = "Main",
+   $Basics = Elm.Basics.make(_elm),
+   $Graphics$Element = Elm.Graphics.Element.make(_elm),
+   $Graphics$WebGL = Elm.Graphics.WebGL.make(_elm),
+   $Keyboard = Elm.Keyboard.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $Time = Elm.Time.make(_elm),
+   $Window = Elm.Window.make(_elm);
+   var display = F2(function (_v0,
+   state) {
+      return function () {
+         switch (_v0.ctor)
+         {case "_Tuple2":
+            return A2($Graphics$WebGL.webgl,
+              {ctor: "_Tuple2"
+              ,_0: _v0._0
+              ,_1: _v0._1},
+              _L.fromArray([]));}
+         _E.Case($moduleName,
+         "on line 23, column 24 to 39");
+      }();
+   });
+   var delta = A2($Signal._op["<~"],
+   $Time.inSeconds,
+   $Time.fps(60));
+   var Input = F2(function (a,b) {
+      return {_: {}
+             ,shift: a
+             ,time: b};
+   });
+   var input = $Signal.sampleOn(delta)(A2($Signal._op["~"],
+   A2($Signal._op["<~"],
+   Input,
+   $Keyboard.shift),
+   delta));
+   var State = {_: {}};
+   var emptyState = State;
+   var stepStuff = F2(function (_v4,
+   _v5) {
+      return function () {
+         return function () {
+            return emptyState;
+         }();
+      }();
+   });
+   var state = A3($Signal.foldp,
+   stepStuff,
+   emptyState,
+   input);
+   var main = A3($Signal.lift2,
+   display,
+   $Window.dimensions,
+   state);
+   _elm.Main.values = {_op: _op
+                      ,State: State
+                      ,Input: Input
+                      ,emptyState: emptyState
+                      ,delta: delta
+                      ,input: input
+                      ,state: state
+                      ,stepStuff: stepStuff
+                      ,display: display
+                      ,main: main};
+   return _elm.Main.values;
+};
